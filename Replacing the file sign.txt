@@ -1,0 +1,6 @@
+$path = "C:\Users\i.danilov\Desktop\В работе\вахта 3\TQ-12488-00\03.Result — копия (5)\"
+
+Get-ChildItem -Path $path -Filter "*_001*.pdf" | ForEach-Object {
+    $newName = $_.Name -replace '(\d{4})_(\d{3})', '$1.$2'
+    Rename-Item -Path $_.FullName -NewName $newName
+}
